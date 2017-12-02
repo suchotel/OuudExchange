@@ -14,10 +14,20 @@
         <!--view group-->
         <!--Logo-->
         <ImageView
-            android:layout_width="@dimen/logo"
-            android:layout_height="@dimen/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/Logo" />
+            android:src="@drawable/logo"/>
+
+
+
+        <!--<ImageView />-->
+        <!---->
+            <!--android:layout_width="@dimen/logo"-->
+            <!--android:layout_height="@dimen/logo"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:src="@drawable/Logo" />-->
+
 
         <!--App Name-->
         <TextView
