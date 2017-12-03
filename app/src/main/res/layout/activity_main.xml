@@ -6,11 +6,20 @@
     android:layout_height="match_parent"
     tools:context="com.intentprochote.exchange.ouudexchange.MainActivity">
 
+    <!--Wallpaper-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/wp"
+        android:scaleType="centerCrop"/>
+
+
+
     <!--content of fragment display สร้าง FrameLayout-->
     <FrameLayout
         android:id="@+id/ContentMainFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent">    </FrameLayout>
 
 
 
