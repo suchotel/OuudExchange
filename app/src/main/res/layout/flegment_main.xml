@@ -58,12 +58,27 @@
             android:src="@drawable/ic_action_money" />
         <EditText
             android:id="@+id/edtMoney"
+            android:textColorHint="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
             android:hint="@string/usd" />
         <Button
             android:id="@+id/butMoney"
+            android:text="Done"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <!--Show Rate-->
+        <TextView
+            android:id="@+id/txtRateExchange"
+            android:clickable="true"
+            android:text="Exchange Rate"
+            android:textSize="@dimen/h2"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:textStyle="italic"
+            android:textColor="@color/colorAccent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
 </RelativeLayout>

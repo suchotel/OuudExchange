@@ -1,8 +1,11 @@
 package com.intentprochote.exchange.ouudexchange.fragment;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +27,10 @@ public class MainFragment extends Fragment{
     private RadioButton usdRadioButton, thbRadioButton;
     private EditText editText;
     private Button button;
+    private String moneyString;   //รับค่าที่ได้จาก text control มาเพื่อใช้กับ Java
+    private double factorAdouble;
+    private static double usdAdouble = 33;
+
 
 
 
@@ -40,13 +47,116 @@ public class MainFragment extends Fragment{
 //        Click USD to THB First
         clickUSDToTHBFirst();
 
+//        USD Controller
+        USDController();
 
+//        THB Controller
+        THBController();
+
+//        Exchange Controller
+        exchangeController();
+
+//        Rate Controller
+        rateController();
 
 
     }  //Main Method
 
+    private void rateController() {
+        TextView textView = getView().findViewById(R.id.txtRateExchange); //ประกาศเพื่อเอามาใช้
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.ContentMainFragment, new ShowRateExchangeFragmant())
+                        .addToBackStack(null).commit();
+
+
+            }
+        }); //ให้ใช้ T ตัวเล็ก  กด
+
+
+    }
+
+//    private void myAlertDialog(String strTitle, String strMessage) {  }
+
+
+    private void exchangeController() {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moneyString = editText.getText().toString().trim();
+
+//                Check Space
+                if (moneyString.isEmpty()) {
+//                    Have Space
+                    myAlertDialog("Have Space", "Please Fill All Blank");
+
+                } else {
+//                    No Space
+                    calculate();
+
+                }
+
+
+            }
+        });
+    }
+
+    private void calculate() {
+        String tag = "3DecV1";
+        Log.d(tag, "Factor ==> " + factorAdouble);
+
+        double answerAdouble = Double.parseDouble(moneyString) * factorAdouble;
+        //ประกาศตัวแปร answerAdouble
+        myAlertDialog("Answer", "Money = " + String.format("%.2f",answerAdouble));
+
+
+    } // calculate
+
+    private void myAlertDialog(String strTitle, String strMessage) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(false);
+        builder.setIcon(R.drawable.ic_action_alert);
+        builder.setTitle(strTitle);
+        builder.setMessage(strMessage);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+
+
+
+    } //myAlert
+
+    private void THBController() {
+        thbRadioButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setHint(getString(R.string.thb));
+                factorAdouble = 1 / usdAdouble;
+            }
+        });
+    }
+
+    private void USDController() {
+        usdRadioButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               editText.setHint(getString(R.string.usd));
+               factorAdouble = usdAdouble * 1;
+            }
+        });
+    }
+
     private void clickUSDToTHBFirst() {
         usdRadioButton.setChecked(true);
+        factorAdouble = usdAdouble;
     }
 
     private void initialView() {

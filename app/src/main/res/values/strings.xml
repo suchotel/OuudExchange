@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Ouud Exchange</string>
     <string name="exchange_money">แลกเปลี่ยนเงินตรา</string>
-    <string name="usd">USD to THB</string>
-    <string name="thb">THB to USD</string>
+    <string name="usd">กรอกจำนวนเงิน ดอลล่าร์</string>
+    <string name="thb">กรอกจำนวนเงิน บาท</string>
 </resources>
