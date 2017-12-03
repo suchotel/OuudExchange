@@ -2,34 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <!--content คือ เนื้อหาสาระ-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/margin"
         android:layout_marginRight="@dimen/margin"
         android:layout_marginTop="@dimen/margin"
-        android:orientation="vertical">
-        <!--view group-->
+        android:orientation="vertical" >
         <!--Logo-->
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/logo"/>
-
-
-
-        <!--<ImageView />-->
-        <!---->
-            <!--android:layout_width="@dimen/logo"-->
-            <!--android:layout_height="@dimen/logo"-->
-            <!--android:layout_gravity="center_horizontal"-->
-            <!--android:src="@drawable/Logo" />-->
-
-
-        <!--App Name-->
+            android:src="@drawable/logo" />
+        <!--App. Name-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,55 +25,36 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/h1"
             android:textStyle="bold" />
-
-
+        <!--Option Group-->
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/padding">
-
-            <!--Usd to thb-->
+            android:padding="@dimen/padding" >
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="USD to THB"
+                android:text="@string/usd"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/h2"
                 android:textStyle="italic" />
-
-            <!--thb to usd-->
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="THB to USD"
+                android:text="@string/thb"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/h2"
                 android:textStyle="italic" />
-
         </RadioGroup>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></LinearLayout>
-
-        <!--Icon-->
+        <!--Signage & Textbox-->
         <ImageView
-            android:src="@drawable/ic_action_money"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-        <!--TextField-->
-
-
-        <!--ok button-->
-
-
-
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_money" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/usd" />
     </LinearLayout>
-
-
 </RelativeLayout>
