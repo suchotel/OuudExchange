@@ -1,6 +1,7 @@
 package com.intentprochote.exchange.ouudexchange.fragment;
 
 import android.content.DialogInterface;
+import android.icu.text.DecimalFormat;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -110,7 +111,8 @@ public class MainFragment extends Fragment{
 
         double answerAdouble = Double.parseDouble(moneyString) * factorAdouble;
         //ประกาศตัวแปร answerAdouble
-        myAlertDialog("Answer", "Money = " + String.format("%.2f",answerAdouble));
+        myAlertDialog("Answer", "Money = " + String.format("%.2f" + " บาท",answerAdouble));
+
 
 
     } // calculate
